@@ -35,7 +35,8 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
             httpMethod = _httpMethod,
             params = _params,
             connection = _connection,
-            responseText = _responseText;
+            responseText = _responseText,
+			userInfo = _userInfo;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // class public
@@ -43,7 +44,8 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
 + (FBRequest *)getRequestWithParams:(NSMutableDictionary *) params
                          httpMethod:(NSString *) httpMethod
                            delegate:(id<FBRequestDelegate>) delegate
-                         requestURL:(NSString *) url {
+                         requestURL:(NSString *) url
+						   userInfo:(id) userInfo {
 
   FBRequest* request = [[[FBRequest alloc] init] autorelease];
   request.delegate = delegate;
@@ -52,6 +54,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
   request.params = params;
   request.connection = nil;
   request.responseText = nil;
+	request.userInfo = userInfo;
 
   return request;
 }
@@ -317,6 +320,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
   [_url release];
   [_httpMethod release];
   [_params release];
+	[_userInfo release];
   [super dealloc];
 }
 

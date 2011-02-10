@@ -54,10 +54,15 @@
 - (FBRequest*)requestWithParams:(NSMutableDictionary *)params
                     andDelegate:(id <FBRequestDelegate>)delegate;
 
+- (FBRequest*)requestWithParams:(NSMutableDictionary *)params
+                    andDelegate:(id <FBRequestDelegate>)delegate
+					andUserInfo:(id)userinfo;
+
 - (FBRequest*)requestWithMethodName:(NSString *)methodName
                           andParams:(NSMutableDictionary *)params
                       andHttpMethod:(NSString *)httpMethod
-                        andDelegate:(id <FBRequestDelegate>)delegate;
+                        andDelegate:(id <FBRequestDelegate>)delegate
+						andUserInfo:(id)userinfo;
 
 - (FBRequest*)requestWithGraphPath:(NSString *)graphPath
                        andDelegate:(id <FBRequestDelegate>)delegate;
@@ -70,6 +75,12 @@
                          andParams:(NSMutableDictionary *)params
                      andHttpMethod:(NSString *)httpMethod
                        andDelegate:(id <FBRequestDelegate>)delegate;
+
+- (FBRequest*)requestWithGraphPath:(NSString *)graphPath
+                         andParams:(NSMutableDictionary *)params
+                     andHttpMethod:(NSString *)httpMethod
+                       andDelegate:(id <FBRequestDelegate>)delegate
+					   andUserInfo:(id)userinfo;
 
 - (void)dialog:(NSString *)action
    andDelegate:(id<FBDialogDelegate>)delegate;

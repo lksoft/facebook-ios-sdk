@@ -29,6 +29,7 @@
   NSMutableDictionary*  _params;
   NSURLConnection*      _connection;
   NSMutableData*        _responseText;
+	id	_userInfo;
 }
 
 
@@ -53,7 +54,7 @@
 @property(nonatomic,retain) NSMutableDictionary* params;
 @property(nonatomic,assign) NSURLConnection*  connection;
 @property(nonatomic,assign) NSMutableData* responseText;
-
+@property(nonatomic,retain) id userInfo;
 
 + (NSString*)serializeURL:(NSString *)baseUrl
                    params:(NSDictionary *)params;
@@ -65,7 +66,8 @@
 + (FBRequest*)getRequestWithParams:(NSMutableDictionary *) params
                         httpMethod:(NSString *) httpMethod
                           delegate:(id<FBRequestDelegate>)delegate
-                        requestURL:(NSString *) url;
+                        requestURL:(NSString *) url
+						  userInfo:(id)userInfo;
 - (BOOL) loading;
 
 - (void) connect;
